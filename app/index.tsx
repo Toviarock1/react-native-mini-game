@@ -4,6 +4,7 @@ import GameOverScreen from "@/screens/GameOverScreen";
 import { useFonts } from "expo-font";
 import { LinearGradient } from "expo-linear-gradient";
 import * as SplashScreen from "expo-splash-screen";
+import { StatusBar } from "expo-status-bar";
 import { useState } from "react";
 import { ImageBackground, StyleSheet } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -59,19 +60,22 @@ export default function Index() {
   }
 
   return (
-    <LinearGradient
-      colors={[Colors.primary800, Colors.accent500]}
-      style={styles.rootScreen}
-    >
-      <ImageBackground
-        source={require("./../assets/images/background.png")}
-        resizeMode="cover"
+    <>
+      <StatusBar style="dark" />
+      <LinearGradient
+        colors={[Colors.primary800, Colors.accent500]}
         style={styles.rootScreen}
-        imageStyle={styles.backgroundImage}
       >
-        <SafeAreaView style={styles.rootScreen}>{screen}</SafeAreaView>
-      </ImageBackground>
-    </LinearGradient>
+        <ImageBackground
+          source={require("./../assets/images/background.png")}
+          resizeMode="cover"
+          style={styles.rootScreen}
+          imageStyle={styles.backgroundImage}
+        >
+          <SafeAreaView style={styles.rootScreen}>{screen}</SafeAreaView>
+        </ImageBackground>
+      </LinearGradient>
+    </>
   );
 }
 
